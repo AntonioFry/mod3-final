@@ -11,6 +11,7 @@ const Animals = ({ animals }) => {
         id={animal.id}
         description={animal.description}
         img={animal.img}
+        key={animal.id}
       />
     )
   })

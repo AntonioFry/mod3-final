@@ -5,7 +5,7 @@ import Donations from './Donations';
 import Animals from './Animals';
 import { setAnimals, setError } from './actions';
 import { connect } from 'react-redux';
-import {fetchAnimals, fetchDonation} from './apiCalls';
+import {fetchAnimals, fetchDonations} from './apiCalls';
 
 class App extends Component {
   constructor() {
@@ -19,7 +19,7 @@ class App extends Component {
     try {
       const { setError, setAnimals, setDonations } = this.props
       await fetchAnimals(setError, setAnimals)
-      await fetchDonation(setError, setDonations);
+      await fetchDonations(setError, setDonations);
     } catch (error) {
       this.props.setError(error.message)
     }

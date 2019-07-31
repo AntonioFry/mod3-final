@@ -11,7 +11,7 @@ export const fetchAnimals = async(setError, setAnimals) => {
   }
 }
 
-export const fetchDonation = async(setError, setDonations) => {
+export const fetchDonations = async(setError, setDonations) => {
   try {
     const response = await fetch(`http://localhost:3001/api/v1/donations`)
     const result = await response.json();
