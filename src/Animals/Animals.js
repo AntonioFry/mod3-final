@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Card/Card';
 import {connect} from 'react-redux';
+import './Animals.css';
 
 const Animals = ({ animals }) => {
   const animalCards = animals.map(animal => {
@@ -16,7 +17,7 @@ const Animals = ({ animals }) => {
     )
   })
   return (
-    <section>
+    <section className="animals-section">
       {animalCards};
     </section>
   )

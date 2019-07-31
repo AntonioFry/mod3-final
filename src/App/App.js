@@ -30,8 +30,10 @@ class App extends Component {
     return (
       <main>
         <Form />
-        <Animals />
-        <Donations />
+        <section className="lower-section">
+          <Animals />
+          <Donations />
+        </section>
       </main>
     );
   }

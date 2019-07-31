@@ -1,6 +1,7 @@
 import React from 'react'
 import DonationCard from '../Card/DonationCard';
 import { connect } from 'react-redux';
+import './Donations.css';
 
 const Donations = ({ allDonations }) => {
   const cards = allDonations.map(donate => {
@@ -15,7 +16,8 @@ const Donations = ({ allDonations }) => {
   })
   
   return  (
-    <section>
+    <section className="donations-section">
+      <h2>Recent Donations</h2>
       {cards}
     </section>
   )

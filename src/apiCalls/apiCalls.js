@@ -27,12 +27,11 @@ export const postDonation = async(setError, donation) => {
     const option = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "content-type": "application/json"
       },
       body: JSON.stringify(donation)
     }
-    const response = await fetch(`http://localhost:3001/api/v1/donations/`, option);
-    const result = await response.json()
+    await fetch(`http://localhost:3001/api/v1/donations/`, option);
   } catch (error) {
     setError(error.message);
   }
