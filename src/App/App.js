@@ -33,7 +33,7 @@ class App extends Component {
       <main>
         <Form />
         {this.props.error !== "" && <h2>{this.props.error}</h2>}
-        {this.props.loading !== "" && <img src=(({this.props.loading})) alt="loading"/>}
+        {/* {this.props.loading !== "" && <img src={this.props.loading} alt="loading"/>} */}
         {/* {this.props.loading === "" && */}
         {this.props.error === "" && 
           <section className="lower-section">

@@ -21,7 +21,7 @@ class Form extends Component {
     e.preventDefault();
     const newDonation = { id: Date.now(), name: this.state.nameValue, donation: parseInt(this.state.donationValue) };
     this.props.addDonation(newDonation);
-    postDonation(newDonation);
+    postDonation(this.props.setError, newDonation);
   }
 
   render() {
