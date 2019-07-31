@@ -3,7 +3,7 @@ import './App.css';
 import Form from './Form';
 import Donations from './Donations';
 import Animals from './Animals';
-import { setAnimals } from './actions';
+import { setAnimals, setError } from './actions';
 import { connect } from 'react-redux';
 
 class App extends Component {
@@ -18,10 +18,10 @@ class App extends Component {
     try {
       const response = await fetch(`http://localhost:3001/api/v1/rescue-animals`)
       const result = await response.json();
-      console.log(result);
+      this.props.setAnimals(result);
 
     } catch (error) {
-      this.setState({ error })
+      this.props.setError(error.message)
     }
   }
 
@@ -42,7 +42,8 @@ const mapStateToProps = (store) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  setAnimals: animals => dispatch(setAnimals(animals))
+  setAnimals: animals => dispatch(setAnimals(animals)),
+  setError: error => dispatch(setError(error))
 })
 
-export default connect()(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
