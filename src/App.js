@@ -4,6 +4,7 @@ import Form from './Form';
 import Donations from './Donations';
 import Animals from './Animals';
 import { setAnimals } from './actions';
+import { connect } from 'react-redux';
 
 class App extends Component {
   constructor() {
@@ -17,7 +18,7 @@ class App extends Component {
     try {
       const response = await fetch(`http://localhost:3001/api/v1/rescue-animals`)
       const result = await response.json();
-
+      console.log(result);
 
     } catch (error) {
       this.setState({ error })
@@ -36,8 +37,12 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (store) => ({
+  error: store.error
+})
+
 const mapDispatchToProps = (dispatch) => ({
   setAnimals: animals => dispatch(setAnimals(animals))
 })
 
-export default App;
+export default connect()(App);
