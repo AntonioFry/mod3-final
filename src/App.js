@@ -5,6 +5,7 @@ import Donations from './Donations';
 import Animals from './Animals';
 import { setAnimals, setError } from './actions';
 import { connect } from 'react-redux';
+import {fetchAnimals, fetchDonation} from './apiCalls';
 
 class App extends Component {
   constructor() {
@@ -16,10 +17,9 @@ class App extends Component {
 
   componentDidMount = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/v1/rescue-animals`)
-      const result = await response.json();
-      this.props.setAnimals(result);
-
+      const { setError, setAnimals, setDonations } = this.props
+      await fetchAnimals(setError, setAnimals)
+      await fetchDonation(setError, setDonations);
     } catch (error) {
       this.props.setError(error.message)
     }
