@@ -11,4 +11,9 @@ export const setAnimals = (animals) => ({
 export const setError = (error) => ({
   type: "SET_ERROR",
   error
-}); 
+});
+
+export const setDonations = (donations) => ({
+  type: "SET_DONATIONS",
+  donations
+});

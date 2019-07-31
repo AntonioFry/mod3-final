@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { addDonation, setError } from './actions';
+import { addDonation, setError } from '../actions';
 import { connect } from 'react-redux';
-import { postDonation } from './apiCalls';
+import { postDonation } from '../apiCalls/apiCalls';
 
 class Form extends Component {
   constructor() {
@@ -18,9 +18,9 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const newDonation = { name: this.state.nameValue, donation: this.state.donationValue, id: Date.now() };
+    const newDonation = { id: Date.now(), name: this.state.nameValue, donation: this.state.donationValue };
     this.props.addDonation(newDonation);
-    postDonation(newDonation)
+    postDonation(newDonation);
   }
 
   render() {
