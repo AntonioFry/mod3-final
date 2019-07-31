@@ -1,5 +1,3 @@
-// import { setError, setAnimals, setDonations } from './actions';
-
 export const fetchAnimals = async(setError, setAnimals) => {
   try {
     const response = await fetch(`http://localhost:3001/api/v1/rescue-animals`)
@@ -27,12 +25,13 @@ export const postDonation = async(setError, donation) => {
     const option = {
       method: "POST",
       headers: {
-        "content-type": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(donation)
     }
     await fetch(`http://localhost:3001/api/v1/donations/`, option);
   } catch (error) {
+    console.log(error)
     setError(error.message);
   }
 }

@@ -17,3 +17,8 @@ export const setDonations = (donations) => ({
   type: "SET_DONATIONS",
   donations
 });
+
+export const isLoading = (loading) => ({
+  type: "IS_LOADING",
+  loading
+});

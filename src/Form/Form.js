@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { addDonation, setError } from '../actions';
 import { connect } from 'react-redux';
 import { postDonation } from '../apiCalls/apiCalls';
+import './Form.css';
 
 class Form extends Component {
   constructor() {
@@ -18,7 +19,7 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const newDonation = { id: Date.now(), name: this.state.nameValue, donation: this.state.donationValue };
+    const newDonation = { id: Date.now(), name: this.state.nameValue, donation: parseInt(this.state.donationValue) };
     this.props.addDonation(newDonation);
     postDonation(newDonation);
   }
@@ -26,22 +27,24 @@ class Form extends Component {
   render() {
     return (
       <header>
-        <h1>Animal Rescue</h1>
-        <form>
-          <input
-            placeholder="name"
-            name="nameValue"
-            value={this.state.nameValue}
-            onChange={(e) => this.handleChange(e)}
-          />
-          <input
-            placeholder="donation"
-            name="donationValue"
-            value={this.state.donationValue}
-            onChange={(e) => this.handleChange(e)}
-          />
-          <button onClick={(e) => this.handleSubmit(e)}>Donate!</button>
-        </form>
+        <div className="header-content">
+          <h1>Animal Rescue</h1>
+          <form>
+            <input
+              placeholder="name"
+              name="nameValue"
+              value={this.state.nameValue}
+              onChange={(e) => this.handleChange(e)}
+            />
+            <input
+              placeholder="donation"
+              name="donationValue"
+              value={this.state.donationValue}
+              onChange={(e) => this.handleChange(e)}
+            />
+            <button onClick={(e) => this.handleSubmit(e)}>Donate!</button>
+          </form>
+        </div>
       </header>
     )
   }
