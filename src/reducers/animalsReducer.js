@@ -1,4 +1,4 @@
-export const animalReducer = (state = [], action) => {
+export const animalsReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_ANIMALS":
       return action.animals;
