@@ -18,7 +18,7 @@ const Animals = ({ animals }) => {
   })
   return (
     <section className="animals-section">
-      {animalCards};
+      {animalCards}
     </section>
   )
 }
